@@ -4,10 +4,8 @@ Real-time **ego-accident detection** system trained with YOLOv11 and deployed on
 
 ## Contributors
 
-| Role | GitHub |
-|---|---|
-| AI / Model | [@ishakdavidk](https://github.com/ishakdavidk) |
-| Hardware | [@republicofmakers](https://github.com/republicofmakers) |
+- **AI / Software:** [@ishakdavidk](https://github.com/ishakdavidk) - model training, inference pipeline, and Jetson deployment
+- **Hardware:** [@republicofmakers](https://github.com/republicofmakers) - device design and hardware integration
 
 ---
 
