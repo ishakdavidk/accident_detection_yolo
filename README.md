@@ -2,13 +2,6 @@
 
 Real-time **ego-accident detection** system trained with YOLOv11 and deployed on edge hardware (Radxa CM5 / NVIDIA Jetson). Unlike general accident detection, this system focuses exclusively on detecting accidents involving the **ego vehicle** (the vehicle carrying the camera) using dashcam footage, with a temporal confidence buffer and cooldown mechanism to reduce false positives.
 
-## Contributors
-
-- **AI / Software:** [@ishakdavidk](https://github.com/ishakdavidk) - model training, inference pipeline, and Jetson deployment
-- **Hardware:** [@republicofmakers](https://github.com/republicofmakers) - device design and hardware integration
-
----
-
 ## Demo
 
 ### Desktop inference on video (`live_detect_pth_save.py`)
@@ -246,3 +239,10 @@ Camera / Video
                                                HTTP MJPEG stream
                                                (web browser view)
 ```
+
+---
+
+## Contributors
+
+- **AI / Software:** [@ishakdavidk](https://github.com/ishakdavidk) - model training, inference pipeline, and Radxa CM5 deployment
+- **Hardware:** [@republicofmakers](https://github.com/republicofmakers) - all hardware
