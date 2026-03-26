@@ -8,7 +8,7 @@ Real-time traffic accident detection system trained with YOLOv11 and deployed on
 
 ### Desktop inference on video (`live_detect_pth_save.py`)
 
-<video src="output_accident_detect.mp4" controls width="720"></video>
+[![Desktop inference demo](https://img.youtube.com/vi/gaxsCEG30dc/maxresdefault.jpg)](https://youtu.be/gaxsCEG30dc)
 
 > Detection running on a recorded dashcam video using the `.pt` model on a Windows PC.
 
@@ -44,8 +44,9 @@ These clips were recorded directly from the Radxa CM5 deployment. A Radxa Camera
 This project implements an end-to-end accident detection pipeline:
 
 1. **Train** a YOLOv11s model with a two-stage frozen/unfrozen strategy at 1024×1024 resolution.
-2. **Run inference** on a PC (`.pt` model) or on edge hardware.
-3. **Deploy** on Radxa CM5 using an RKNN-converted model that runs on the built-in NPU, with event recording, LED indicators, and an HTTP live stream.
+2. **Convert** the trained `.pt` model to ONNX then RKNN format for NPU inference.
+3. **Run inference** on a PC (`.pt` model) or on edge hardware.
+4. **Deploy** on Radxa CM5 using an RKNN-converted model that runs on the built-in NPU, with event recording, LED indicators, and an HTTP live stream.
 
 ---
 
@@ -54,7 +55,13 @@ This project implements an end-to-end accident detection pipeline:
 ```
 ├── train_yolo11.py                      # Two-stage YOLOv11 training script
 ├── live_detect_pth.py                   # Desktop inference on video files (.pt model)
+├── live_detect_pth_save.py              # Desktop inference with output video saving
 ├── live_detect_pth_camera_jetson.py     # Jetson inference with USB camera (.pt model)
+├── convert_rknn/                        # Model conversion pipeline
+│   ├── convert_pth_to_onnx.py           #   Export .pt → .onnx
+│   ├── convert_onnx_to_rknn.py          #   Convert .onnx → .rknn
+│   ├── convert_onnx_to_rknn_optim.py    #   Optimized RKNN conversion
+│   └── create_rknn_dataset.py           #   Build quantization dataset
 ├── live_detect_rknn_final/              # Full edge deployment package (Radxa CM5)
 │   ├── live_detect_rknn_final.py        #   Main entry point
 │   ├── detector.py                      #   RKNN inference + temporal logic
@@ -65,7 +72,6 @@ This project implements an end-to-end accident detection pipeline:
 │   ├── sdcard.py                        #   SD card path resolution
 │   ├── writer.py                        #   Async image writer
 │   └── config.py                        #   All runtime configuration
-├── output_accident_detect.mp4           # Sample output — desktop inference
 └── upload_video/                        # Sample output — Radxa CM5 edge deployment
     ├── event.mp4
     ├── event1.mp4
@@ -92,9 +98,33 @@ Expects `dataset/dataset.yaml`. Outputs checkpoints to `runs/train/`.
 
 ---
 
+## Model Conversion (`convert_rknn/`)
+
+To deploy on Radxa CM5, the trained `.pt` model must be converted to RKNN format:
+
+```bash
+# Step 1 — Export to ONNX
+python convert_rknn/convert_pth_to_onnx.py
+
+# Step 2 — Convert ONNX to RKNN
+python convert_rknn/convert_onnx_to_rknn.py
+```
+
+Use `create_rknn_dataset.py` to build a calibration dataset for INT8 quantization.
+
+---
+
 ## Desktop Inference
 
-### On a video file (Windows / Linux)
+### On a video file — with saving (`live_detect_pth_save.py`)
+
+```bash
+python live_detect_pth_save.py
+```
+
+Runs detection and saves the annotated output as a video file.
+
+### On a video file — display only (`live_detect_pth.py`)
 
 ```bash
 python live_detect_pth.py
