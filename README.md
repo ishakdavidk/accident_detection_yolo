@@ -8,30 +8,32 @@ Real-time traffic accident detection system trained with YOLOv11 and deployed on
 
 ### Desktop inference on video (`live_detect_pth_save.py`)
 
-[![Desktop inference demo](https://img.youtube.com/vi/gaxsCEG30dc/maxresdefault.jpg)](https://youtu.be/gaxsCEG30dc)
+<a href="https://youtu.be/gaxsCEG30dc">
+  <img src="https://img.youtube.com/vi/gaxsCEG30dc/maxresdefault.jpg" width="560" alt="Desktop inference demo"/>
+</a>
 
 > Detection running on a recorded dashcam video using the `.pt` model on a Windows PC.
 
 ---
 
-### Edge deployment on Radxa CM5 - live camera + accident video on screen
+### Edge deployment on Radxa CM5 — live camera + accident video on screen
 
 These clips were recorded directly from the Radxa CM5 deployment. A Radxa Camera 4K (IMX415, CSI) captured a screen playing accident footage while the RKNN-converted model ran on the NPU in real time.
 
 <table>
   <tr>
     <td align="center">
-      <video src="upload_video/event.mp4" controls width="360"></video><br/>
+      <video src="https://raw.githubusercontent.com/ishakdavidk/accident_detection_yolo/main/upload_video/event.mp4" controls width="360"></video><br/>
       <sub>Event 1</sub>
     </td>
     <td align="center">
-      <video src="upload_video/event1.mp4" controls width="360"></video><br/>
+      <video src="https://raw.githubusercontent.com/ishakdavidk/accident_detection_yolo/main/upload_video/event1.mp4" controls width="360"></video><br/>
       <sub>Event 2</sub>
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <video src="upload_video/event2.mp4" controls width="360"></video><br/>
+      <video src="https://raw.githubusercontent.com/ishakdavidk/accident_detection_yolo/main/upload_video/event2.mp4" controls width="360"></video><br/>
       <sub>Event 3</sub>
     </td>
   </tr>
