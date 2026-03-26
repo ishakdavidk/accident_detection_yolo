@@ -1,0 +1,9 @@
+config.py          # env config, thresholds, password, camera source
+led.py             # SysfsGPIOLed
+sdcard.py          # SD card detection / resolve_sd_root
+writer.py          # AsyncImageWriter and global IMAGE_WRITER
+detector.py        # RKNNAccidentDetector + letterbox
+recorder.py        # EventRecorder
+camera.py          # frame_reader
+web_server.py      # StreamingHandler, latest_jpeg, run_stream_server
+live_detect_rknn_final.py            # main loop
