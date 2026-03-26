@@ -245,4 +245,4 @@ Camera / Video
 ## Contributors
 
 - **AI / Software:** [@ishakdavidk](https://github.com/ishakdavidk) - model training, inference pipeline, and Radxa CM5 deployment
-- **Hardware:** [@republicofmakers](https://github.com/republicofmakers) - all hardware
+- **Hardware:** [@republicofmakers](https://github.com/republicofmakers) - hardware design and embedded systems
