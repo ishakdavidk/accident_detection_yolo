@@ -16,7 +16,7 @@ Real-time traffic accident detection system trained with YOLOv11 and deployed on
 
 ### Edge deployment on Radxa CM5 — live camera + accident video on screen
 
-These clips were recorded directly from the Radxa CM5 deployment. A USB camera captured a screen playing accident footage while the RKNN-converted model ran on the NPU in real time.
+These clips were recorded directly from the Radxa CM5 deployment. A Radxa Camera 4K (IMX415, CSI) captured a screen playing accident footage while the RKNN-converted model ran on the NPU in real time.
 
 <table>
   <tr>
@@ -129,7 +129,7 @@ The full deployment package for Radxa CM5 uses a model converted to RKNN format 
 | Feature | Details |
 |---|---|
 | Model | YOLOv11s converted to `.rknn` (NPU inference) |
-| Camera | Radxa Camera 4K via GStreamer / USB camera via V4L2 |
+| Camera | Radxa Camera 4K (IMX415) via GStreamer / USB camera via V4L2 |
 | Event recording | Saves annotated clips with pre/post buffer to SD card |
 | LED indicator | GPIO LED — startup sequence + blink on accident |
 | HTTP live stream | MJPEG stream served on port 8000 |
