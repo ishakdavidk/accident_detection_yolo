@@ -1,4 +1,4 @@
-# Accident Detection with YOLOv11
+# Ego-Accident Detection with YOLOv11
 
 Real-time **ego-accident detection** system trained with YOLOv11 and deployed on edge hardware (Radxa CM5 / NVIDIA Jetson). Unlike general accident detection, this system focuses exclusively on detecting accidents involving the **ego vehicle** (the vehicle carrying the camera) using dashcam footage, with a temporal confidence buffer and cooldown mechanism to reduce false positives.
 
